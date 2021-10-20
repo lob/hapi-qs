@@ -42,12 +42,3 @@ jobs:
 
       - name: Enforce coverage
         run: npm run enforce
-
-      - name: Compress coverage directory
-        run: test -d coverage && tar czvf coverage.tar.gz coverage
-
-      - name: Archive code coverage results
-        uses: actions/upload-artifact@v2
-        with:
-          name: code-coverage-report
-          path: coverage.tar.gz
