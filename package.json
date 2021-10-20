@@ -39,6 +39,6 @@
     "stream-to-promise": "^2.2.0"
   },
   "peerDependencies": {
-    "hapi": ">=18.x.x"
+    "@hapi/hapi": ">=18.x.x"
   }
 }
