@@ -30,7 +30,7 @@ exports.start = async (port, pluginOptions, serverOptions) => {
   };
 
   await server.register({
-    plugin: require('../../'),
+    plugin: require('../'),
     options: pluginOptions
   });
 

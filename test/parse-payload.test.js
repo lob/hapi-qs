@@ -5,6 +5,9 @@ const querystring = require('querystring');
 const FormData = require('form-data');
 const streamToPromise = require('stream-to-promise');
 
+const basicServer = require('./basic_server');
+const config = require('./basic_config');
+
 /* eslint lob/padded-describes: "off" */
 
 const payloadExamples = function (method, isMultipart, stripTrailingSlash) {
@@ -14,6 +17,10 @@ const payloadExamples = function (method, isMultipart, stripTrailingSlash) {
     let testPath;
 
     before(function () {
+      this.serverStart = async function (options, serverOptions) {
+        this.server = await basicServer.start(config.port, options, serverOptions);
+      };
+
       this.request = async function (form, options) {
         const requestOptions = {
           method,
